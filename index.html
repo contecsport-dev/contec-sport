@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contec Sport</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Contec Sport</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+    <main>
+        <div id="upload-panel">
+            <h2>Upload Image</h2>
+            <input type="file" id="image-upload" accept="image/png, image/jpeg">
+            <p id="file-error" class="error"></p>
+            <textarea id="description" placeholder="Describe the visual effects..."></textarea>
+            <button id="upload-button">Upload</button>
+            <div id="loading-spinner" style="display:none;">Analyzing...</div>
+        </div>
+        <div id="results-panel">
+            <h2>Analysis Results</h2>
+            <div id="results"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Contec Sport</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
