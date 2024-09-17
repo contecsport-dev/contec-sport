@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contec Sport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <nav class="nav">
+                <div class="nav__logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Contec Sport Logo" class="nav__logo-image">
+                </div>
+                <ul class="nav__menu">
+                    <li><a href="#" class="nav__link nav__link--active">Home</a></li>
+                    <li><a href="#" class="nav__link">Assets</a></li>
+                    <li><a href="#" class="nav__link">Help</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main">
+            <div class="panel panel--input">
+                <h2 class="panel__title">Drop Image Here</h2>
+                <div id="drop-area" class="upload-zone">
+                    <form class="upload-form">
+                        <input type="file" id="fileElem" accept="image/*" class="upload-zone__input">
+                        <label for="fileElem" class="upload-zone__label">
+                            <i class="fas fa-cloud-upload-alt upload-zone__icon"></i>
+                            <p class="upload-zone__text">Drop an image or click to upload</p>
+                        </label>
+                    </form>
+                    <button id="selectFromAssets" class="btn btn--secondary">Select from Files</button>
+                </div>
+                <textarea id="description" class="input-field input-field--textarea" placeholder="Add an image, then describe your shot. View guide or examples."></textarea>
+                <button id="analyze-btn" class="btn btn--primary btn--full-width">Analyze</button>
+            </div>
+            <div class="panel panel--output">
+                <h2 class="panel__title">Breakdowns</h2>
+                <div id="output-content" class="output-content">
+                    <p class="output-content__placeholder">Breakdowns will appear here and be saved to Assets.</p>
+                    <button class="btn btn--text">View guide</button>
+                </div>
+                <div id="analysis-result" class="analysis-result"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

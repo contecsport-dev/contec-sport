@@ -1,0 +1,229 @@
+// Variables
+$primary-color: #6E56CF;
+$secondary-color: #4B4B4B;
+$accent-color: #FF7A00;
+$background-dark: #1A1A1A;
+$surface-dark: #2A2A2A;
+$text-primary: #FFFFFF;
+$text-secondary: #B0B0B0;
+$border-color: #3A3A3A;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin glass-morphism {
+  background: rgba(42, 42, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
+
+// Base styles
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: $background-dark;
+  color: $text-primary;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Header styles
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  &__logo {
+    // Styles for logo container if needed
+  }
+
+  &__logo-image {
+    width: 7vw; // or your preferred size
+    max-width: 90px;
+    min-width: 60px;
+    height: auto;
+  }
+
+  &__menu {
+    display: flex;
+    list-style-type: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    color: $text-secondary;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover, &--active {
+      color: $primary-color;
+    }
+  }
+}
+
+// Main content styles
+.main {
+  display: flex;
+  gap: 30px;
+}
+
+.panel {
+  flex: 1;
+  @include glass-morphism;
+  padding: 30px;
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: $primary-color;
+  }
+}
+
+.upload-zone {
+  border: 2px dashed $border-color;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &__icon {
+    font-size: 3rem;
+    color: $primary-color;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+.input-field {
+  width: 100%;
+  background-color: $surface-dark;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  color: $text-primary;
+  padding: 12px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+
+  &--textarea {
+    resize: vertical;
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &--primary {
+    background-color: $primary-color;
+    color: $text-primary;
+    border: none;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  &--secondary {
+    background-color: $surface-dark;
+    color: $text-primary;
+    border: 1px solid $border-color;
+
+    &:hover {
+      background-color: lighten($surface-dark, 5%);
+    }
+  }
+
+  &--text {
+    background-color: transparent;
+    color: $primary-color;
+    padding: 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.output-content {
+  min-height: 300px;
+  @include flex-center;
+  flex-direction: column;
+  &placeholder {
+  color: $text-secondary;
+  margin-bottom: 20px;
+  }
+  }
+  .analysis-result {
+  margin-top: 20px;
+  background-color: $surface-dark;
+  border-radius: 8px;
+  padding: 20px;
+  white-space: pre-wrap;
+  }
+  // Responsive design
+  @media (max-width: 768px) {
+  .main {
+  flex-direction: column;
+  }
+  .nav {
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    margin-bottom: 20px;
+  }
+
+  &__menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  }
+  }
